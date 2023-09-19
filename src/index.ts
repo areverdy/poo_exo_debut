@@ -1,6 +1,8 @@
 import {Voiture} from "./Voiture"
 import {Pomme} from "./Pomme"
 import {Conducteur} from "./Conducteur"
+import {Joueur} from "./Joueur"
+import {Equipe} from "./Equipe"
 
 const apple = new Pomme('Granny Smith', 'verte')
 apple.afficher()
@@ -33,5 +35,22 @@ console.log(voiturePetite.etat);
 console.log(voiture1.etat);
 
 
-
 console.log(thomas.voitures[0].couleur)
+
+const kevin = new Joueur('Kevin', 'Durant', 37)
+console.log(kevin)
+
+const victor = new Joueur('Victor', 'Wemi', 19)
+console.log(victor)
+
+const equipe1 = new Equipe([kevin,victor])
+console.log(equipe1)
+
+const camille = new Joueur('Camille', 'Lelan', 32)
+console.log(camille)
+
+const karim = new Joueur('Karim', 'Sekri', 42)
+console.log(karim)
+
+const equipe2 = new Equipe([camille,karim])
+console.log(equipe2)
