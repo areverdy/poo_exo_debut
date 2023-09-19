@@ -40,9 +40,21 @@ sequenceDiagram
         afficher nombre de joueurs()
     }
     class Match{
-        +Joueur [] equipe1
-        +Joueur [] equipe2
+        +Equipe [] equipe1
+        +Equipe [] equipe2
         afficher score du match()
+    }
+    class Tournoi{
+        +Equipe equipe1
+        +Equipe equipe2
+        +Equipe equipe3
+        +Equipe equipe4
+        afficher vainqueur match equipe1etequipe2()
+        afficher vainqueur match equipe3etequipe4()
+        afficher vainqueur finale tournoi()
+        afficher vainqueur petite finale tournoi ()
+
+        
     }
         
  ```
