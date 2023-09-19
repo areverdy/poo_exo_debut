@@ -39,4 +39,10 @@ sequenceDiagram
         +Joueur[] joueurs
         afficher nombre de joueurs()
     }
+    class Match{
+        +Joueur [] equipe1
+        +Joueur [] equipe2
+        afficher score du match()
+    }
+        
  ```

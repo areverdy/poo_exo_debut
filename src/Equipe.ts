@@ -4,12 +4,11 @@ export class Equipe{
     public joueurs : Joueur[]
 
     constructor(
-        lesjoueurs : Joueur[]
+        joueurs : Joueur[]
     ) {
-        console.log("nouvelle équipe")
-        this.joueurs = lesjoueurs
+        // console.log("nouvelle équipe")
+        this.joueurs = joueurs
     }
-
 
 public affichernbrejoueur(): number {
     return this.joueurs.length;

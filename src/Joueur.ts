@@ -8,7 +8,6 @@ export class Joueur {
         nom: string,
         age: number
     ){
-        console.log("joueur")
         this.nom = nom
         this.prenom = prenom
         this.age = age
