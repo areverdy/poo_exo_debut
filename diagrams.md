@@ -58,3 +58,6 @@ sequenceDiagram
     }
         
  ```
+ ```mermaid
+ class Viking
+ 
