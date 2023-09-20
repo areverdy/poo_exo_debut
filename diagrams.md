@@ -53,11 +53,26 @@ sequenceDiagram
         afficher vainqueur match equipe3etequipe4()
         afficher vainqueur finale tournoi()
         afficher vainqueur petite finale tournoi ()
-
-        
-    }
-        
+    
+    }       
  ```
+ ### Viking
+
  ```mermaid
- class Viking
- 
+ classDiagram
+     class Viking{
+     +String nom
+     +Int sante
+     +Int force
+     +Sting arme
+    }   
+     class Arme{
+     +String nom
+     +Int force
+    }
+     class Combat{
+     +Viking [] 2 vikings
+     afficher vainqueur du combat ()
+    }
+
+  ```   
