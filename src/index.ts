@@ -1,6 +1,6 @@
-import { Viking } from "./Vikings/Viking"
-import { Arme } from "./Vikings/Arme"
-import { Combat } from "./Vikings/Combat"
+import { Viking } from "./Vikings le jeu/Viking"
+import { Arme } from "./Vikings le jeu/Arme"
+import { Combat } from "./Vikings le jeu/Combat"
 
 const armeG = new Arme("Seax",8)
 const armeH = new Arme("Hache",9)
