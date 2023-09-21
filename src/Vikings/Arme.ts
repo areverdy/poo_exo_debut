@@ -1,6 +1,6 @@
 export class Arme {
     public nom : string;
-    public force : number;
+    private _force : number;
 
     constructor(
         nom: string,
@@ -8,6 +8,10 @@ export class Arme {
     ){
         console.log("nouvelle arme")
         this.nom = nom
-        this.force = force
+        this._force = force
+    }
+
+    public get force(){
+        return this._force
     }
 }
