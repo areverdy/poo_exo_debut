@@ -34,6 +34,14 @@ export class Metier {
     public set vitessebonus(value: Number) {
         this._vitessebonus = value;
     }
+    private _intelligencebonus: Number;
+    public get intelligencebonus(): Number {
+        return this._intelligencebonus;
+    }
+    public set intelligencebonus(value: Number) {
+        this._intelligencebonus = value;
+    }
+
     private _manabonus: Number;
     public get manabonus(): Number {
         return this._manabonus;
@@ -54,6 +62,7 @@ export class Metier {
         _santebonus: Number,
         _forcebonus: Number,
         _vitessebonus: Number,
+        _intelligencebonus: Number,
         _manabonus: Number,
         _pctpointdechancebonus: Number
     ) {
@@ -61,6 +70,7 @@ export class Metier {
         this._santebonus = _santebonus
         this._forcebonus = _forcebonus
         this._vitessebonus = _vitessebonus
+        this._intelligencebonus = _intelligencebonus
         this._manabonus = _manabonus
         this._pctpointdechancebonus = _pctpointdechancebonus
     }
