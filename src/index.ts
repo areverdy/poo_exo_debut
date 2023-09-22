@@ -4,6 +4,7 @@
 
 import { Newviking } from "./Vikings le jeu/Personnages/NewVikings";
 import { Personnage } from "./Vikings le jeu/Personnages/Personnages";
+import { Viking } from "./Vikings le jeu/Viking";
 
 // const armeG = new Arme("Seax",8)
 // const armeH = new Arme("Hache",9)
@@ -18,4 +19,7 @@ import { Personnage } from "./Vikings le jeu/Personnages/Personnages";
 // combat.combattre()
 // combat.affichervainqueur()
 
-const Ragnar = new Personnage("Ragnar", Newviking)
+const viking = new Newviking();
+const Ragnar = new Personnage("Ragnar", viking)
+
+console.log(Ragnar)

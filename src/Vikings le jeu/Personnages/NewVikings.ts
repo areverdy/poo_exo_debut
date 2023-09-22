@@ -19,11 +19,9 @@ export class Newviking extends Metier{
         this._voldevie = value
     }
 
-    constructor(
-        voldevie: number
-    ) {
+    constructor() {
         super(Newviking._nommetier, Newviking._santebonus, Newviking._forcebonus, Newviking._vitessebonus, Newviking._intellignencebonus, Newviking._manabonus, Newviking._pctpointdechancebonus)
-        this._voldevie = voldevie
+        this._voldevie = 0.15
     }
      
     }
