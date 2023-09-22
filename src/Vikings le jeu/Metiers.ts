@@ -57,12 +57,12 @@ export class Metier {
         _manabonus: Number,
         _pctpointdechancebonus: Number
     ) {
-        this._nommetier = nommetier
-        this._santebonus = santebonus
-        this._forcebonus = forcebonus
-        this._vitessebonus = vitessebonus
-        this._manabonus = manabonus
-        this._pctpointdechancebonus = pctpointdechancebonus
+        this._nommetier = _nommetier
+        this._santebonus = _santebonus
+        this._forcebonus = _forcebonus
+        this._vitessebonus = _vitessebonus
+        this._manabonus = _manabonus
+        this._pctpointdechancebonus = _pctpointdechancebonus
     }
 
 
