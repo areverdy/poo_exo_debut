@@ -1,5 +1,5 @@
 import {Arme} from "../Arme"
-import { Metier } from "../Metiers"
+import { Metier } from "../Metier"
 
 
 export class Personnage {

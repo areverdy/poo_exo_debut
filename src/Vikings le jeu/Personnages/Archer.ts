@@ -1,5 +1,5 @@
-import { Metier } from "../Metiers"
-import {  } from "./Chevaliers";
+import { Metier } from "../Metier"
+import {  } from "./Chevalier";
 
 export class Archer extends Metier {
     private static _nommetier: string = "Archer";
@@ -10,17 +10,17 @@ export class Archer extends Metier {
     private static  _manabonus: number = 10;
     private static _pctpointdechancebonus: number = 0.05;
 
-    private _posedepiege: string;
-    public get posedepiege(): string {
+    private _posedepiege: boolean = true;
+    public get posedepiege(): boolean {
         return this._posedepiege;
     }
-    public set posedepiege(value: string) {
+    public set posedepiege(value: boolean) {
         this._posedepiege = value;
     }
     constructor(
-        posedepiege: string,
+        
     ) {
         super(Archer._nommetier, Archer._santebonus, Archer._forcebonus, Archer._vitessebonus, Archer._intellignencebonus, Archer._manabonus, Archer._pctpointdechancebonus)
-        this._posedepiege = posedepiege
+        this._posedepiege = this.posedepiege
     }
 }

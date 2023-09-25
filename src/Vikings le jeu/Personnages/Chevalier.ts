@@ -1,4 +1,4 @@
-import { Metier } from "../Metiers";
+import { Metier } from "../Metier";
 
 export class Chevalier extends Metier {
     private static _nommetier: string = "Chevalier";
@@ -9,17 +9,17 @@ export class Chevalier extends Metier {
     private static  _manabonus: number = 5;
     private static _pctpointdechancebonus: number = 0.03;
 
-    private _bouclier: string;
-    public get bouclier(): string {
-        return this._bouclier;
-    }
-    public set bouclier(value: string) {
-        this._bouclier = value;
-    }
-    constructor(
-        bouclier: string,
+    private _bouclier: boolean = true;
+   
+    constructor(  
     ){
         super(Chevalier._nommetier, Chevalier._santebonus, Chevalier._forcebonus, Chevalier._vitessebonus, Chevalier._intellignencebonus, Chevalier._manabonus, Chevalier._pctpointdechancebonus)
-        this._bouclier=bouclier
+        this._bouclier=this.bouclier
+    }
+    public get bouclier(): boolean {
+        return this._bouclier;
+    }
+    public set bouclier(value: boolean ) {
+        this._bouclier = value;
     }
 }

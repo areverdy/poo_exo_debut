@@ -1,61 +1,19 @@
-import { Personnage } from "./Personnages/Personnages";
-import { Archer } from "./Personnages/Archers";
-import { Chevalier } from "./Personnages/Chevaliers";
+import { Personnage } from "./Personnages/Personnage";
+import { Archer } from "./Personnages/Archer";
+import { Chevalier } from "./Personnages/Chevalier";
 import { Magicien } from "./Personnages/Magiciens";
-import { Newviking } from "./Personnages/NewVikings";
+import { Newviking } from "./Personnages/NewViking";
 import { Voleur } from "./Personnages/Voleurs";
 
 export class Metier {
-   private _nommetier: string;
-    public get nommetier(): string {
-        return this._nommetier;
-    }
-    public set nommetier(value: string) {
-        this._nommetier = value;
-    }
-    private _santebonus: number;
-    public get santebonus(): number {
-        return this._santebonus;
-    }
-    public set santebonus(value: number) {
-        this._santebonus = value;
-    }
-    private _forcebonus: number;
-    public get forcebonus(): number {
-        return this._forcebonus;
-    }
-    public set forcebonus(value: number) {
-        this._forcebonus = value;
-    }
-    private _vitessebonus: number;
-    public get vitessebonus(): number {
-        return this._vitessebonus;
-    }
-    public set vitessebonus(value: number) {
-        this._vitessebonus = value;
-    }
+    private _nommetier: string;
+    private _santebonus: number;    
+    private _forcebonus: number;   
+    private _vitessebonus: number;  
     private _intelligencebonus: number;
-    public get intelligencebonus(): number {
-        return this._intelligencebonus;
-    }
-    public set intelligencebonus(value: number) {
-        this._intelligencebonus = value;
-    }
-
-    private _manabonus: number;
-    public get manabonus(): number {
-        return this._manabonus;
-    }
-    public set manabonus(value: number) {
-        this._manabonus = value;
-    }
+    private _manabonus: number;   
     private _pctpointdechancebonus: number;
-    public get pctpointdechancebonus(): number {
-        return this._pctpointdechancebonus;
-    }
-    public set pctpointdechancebonus(value: number) {
-        this._pctpointdechancebonus = value;
-    }
+    
 
     constructor(
         _nommetier: string,
@@ -74,6 +32,46 @@ export class Metier {
         this._manabonus = _manabonus
         this._pctpointdechancebonus = _pctpointdechancebonus
     }
-
-
+    public get nommetier(): string {
+        return this._nommetier;
+    }
+    public set nommetier(value: string) {
+        this._nommetier = value;
+    }
+    public get santebonus(): number {
+        return this._santebonus;
+    }
+    public set santebonus(value: number) {
+        this._santebonus = value;
+    }
+    public get forcebonus(): number {
+        return this._forcebonus;
+    }
+    public set forcebonus(value: number) {
+        this._forcebonus = value;
+    }
+    public get vitessebonus(): number {
+        return this._vitessebonus;
+    }
+    public set vitessebonus(value: number) {
+        this._vitessebonus = value;
+    }
+    public get intelligencebonus(): number {
+        return this._intelligencebonus;
+    }
+    public set intelligencebonus(value: number) {
+        this._intelligencebonus = value;
+    }
+    public get manabonus(): number {
+        return this._manabonus;
+    }
+    public set manabonus(value: number) {
+        this._manabonus = value;
+    }
+    public get pctpointdechancebonus(): number {
+        return this._pctpointdechancebonus;
+    }
+    public set pctpointdechancebonus(value: number) {
+        this._pctpointdechancebonus = value;
+    }
 }

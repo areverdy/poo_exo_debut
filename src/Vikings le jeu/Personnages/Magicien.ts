@@ -1,4 +1,4 @@
-import { Metier } from "../Metiers";
+import { Metier } from "../Metier";
 
 export class Magicien extends Metier{
     private static _nommetier: string = "Magicien";
@@ -9,18 +9,18 @@ export class Magicien extends Metier{
     private static  _manabonus: number = 45;
     private static _pctpointdechancebonus: number = 0;
 
-    private _incantation: string;
-    public get incantation(): string {
-        return this._incantation;
-    }
-    public set incantation(value: string) {
-        this._incantation = value;
-    }
+    private _incantation: boolean = true;
+    
     constructor(
-        incantation: string,
+        
     ){
         super(Magicien._nommetier, Magicien._santebonus, Magicien._forcebonus, Magicien._vitessebonus, Magicien._intellignencebonus, Magicien._manabonus, Magicien._pctpointdechancebonus)
-        this._incantation = incantation
+        this._incantation = this.incantation
     }
-
+    public get incantation(): boolean {
+        return this._incantation;
+    }
+    public set incantation(value: boolean) {
+        this._incantation = value;
+    }
 }

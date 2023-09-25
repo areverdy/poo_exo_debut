@@ -2,9 +2,11 @@
 // import { Arme } from "./Vikings le jeu/Arme"
 // import { Combat } from "./Vikings le jeu/Combat"
 
-import { Newviking } from "./Vikings le jeu/Personnages/NewVikings";
-import { Personnage } from "./Vikings le jeu/Personnages/Personnages";
-import { Viking } from "./Vikings le jeu/Viking";
+import { Archer } from "./Vikings le jeu/Personnages/Archer";
+import { Chevalier } from "./Vikings le jeu/Personnages/Chevalier";
+import { Magicien } from "./Vikings le jeu/Personnages/Magicien";
+import { Newviking } from "./Vikings le jeu/Personnages/NewViking";
+import { Personnage } from "./Vikings le jeu/Personnages/Personnage";
 
 // const armeG = new Arme("Seax",8)
 // const armeH = new Arme("Hache",9)
@@ -21,5 +23,16 @@ import { Viking } from "./Vikings le jeu/Viking";
 
 const viking = new Newviking();
 const Ragnar = new Personnage("Ragnar", viking)
-
 console.log(Ragnar)
+
+const archer = new Archer();
+const Cupidon = new Personnage("Cupidon", archer)
+console.log(Cupidon)
+
+const chevalier = new Chevalier();
+const Bayard = new Personnage("Bayard", chevalier)
+console.log(Bayard)
+
+const magicien = new Magicien();
+const Merlin = new Personnage("Merlin", magicien)
+console.log(Merlin)
