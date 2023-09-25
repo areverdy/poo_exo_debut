@@ -14,7 +14,8 @@ export class Personnage {
     private _mana: number = 50 
     private _pctchance: number = 0.02
     private _degats: number = 0
-   
+    public hasPiege: boolean = false
+    public hasBouclier: boolean = false
      
     constructor(
         nom: string,
@@ -30,7 +31,6 @@ export class Personnage {
     getForceTotale() : number {
         return this.force + this._metier.forcebonus
     }
-
     isAlive(){
         return this.sante > 0
     }
@@ -62,7 +62,7 @@ export class Personnage {
         }
         return niveau
     }
-    
+
     public get nbreptexperience(): number {
         return this._nbreptexperience
     }

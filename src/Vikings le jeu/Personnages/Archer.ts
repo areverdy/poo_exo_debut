@@ -11,8 +11,8 @@ export class Archer extends Metier {
     private static _pctpointdechancebonus: number = 0.05;
 
     private _posedepiege: boolean = true;
-    public get posedepiege(): boolean {
-        return this._posedepiege;
+    public get posedepiege(): true {
+        return this._posedepiege = true;
     }
     public set posedepiege(value: boolean) {
         this._posedepiege = value;
