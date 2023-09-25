@@ -1,10 +1,3 @@
-import { Personnage } from "./Personnages/Personnage";
-import { Archer } from "./Personnages/Archer";
-import { Chevalier } from "./Personnages/Chevalier";
-import { Magicien } from "./Personnages/Magiciens";
-import { Newviking } from "./Personnages/NewViking";
-import { Voleur } from "./Personnages/Voleurs";
-
 export class Metier {
     private _nommetier: string;
     private _santebonus: number;    

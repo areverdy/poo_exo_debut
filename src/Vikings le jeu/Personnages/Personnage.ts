@@ -8,33 +8,39 @@ export class Personnage {
     private _santeInitiale: number = 50
     private _metier: Metier
     private _force: number = 10
-    private _niveau: number = 1
     private _nbreptexperience: number = 0
     private _vitesse: number = 10
     private _intelligence: number = 10
     private _mana: number = 50 
     private _pctchance: number = 0.02
+    private _degats: number = 0
+   
      
     constructor(
-        
         nom: string,
         metier : Metier,
-
     ) {
         this.nom = nom
         this._metier = metier
-        this._santeInitiale = this.santeInitiale + this.metier.santebonus
-        this._force = this.force + this.metier.forcebonus
-        this._niveau = this.niveau
-        this._nbreptexperience = this.nbreptexperience
-        this._vitesse = this.vitesse + this.metier.vitessebonus
-        this._intelligence = this.intelligence + this.metier.intelligencebonus
-        this._mana = this.mana + this.metier.manabonus
-        this._pctchance = this.pctchance + this.metier.pctpointdechancebonus
+        }
 
+    seFaitAttaquer(pointsDeDegats: number){
+        this._degats += pointsDeDegats
     }
+    getForceTotale() : number {
+        return this.force + this._metier.forcebonus
+    }
+
+    isAlive(){
+        return this.sante > 0
+    }
+
+    public get sante(){
+        return this.santeInitiale - this._degats
+    }
+
     public get santeInitiale(): number {
-        return this._santeInitiale
+        return this._santeInitiale + this.metier.santebonus
     }
     public set santeInitiale(value: number) {
         this._santeInitiale = value
@@ -47,11 +53,16 @@ export class Personnage {
         this._metier = value
     }
     public get niveau(): number {
-        return this._niveau
+        let niveau = 1
+        if(this._nbreptexperience > 150){
+            niveau = 2
+        }
+        else if(this._nbreptexperience > 400){
+            niveau = 3
+        }
+        return niveau
     }
-    public set niveau(value: number) {
-        this._niveau = value
-    }
+    
     public get nbreptexperience(): number {
         return this._nbreptexperience
     }
@@ -59,33 +70,39 @@ export class Personnage {
         this._nbreptexperience = value
     }
     public get vitesse(): number {
-        return this._vitesse
+        return this._vitesse + this._metier.vitessebonus
     }
     public set vitesse(value: number) {
         this._vitesse = value
     }
     public get intelligence(): number {
-        return this._intelligence
+        return this._intelligence + this._metier.intelligencebonus
     }
     public set intelligence(value: number) {
         this._intelligence = value
     }
     public get mana(): number {
-        return this._mana
+        return this._mana + this._metier.manabonus
     }
     public set mana(value: number) {
         this._mana = value
     }
     public get pctchance(): number {
-        return this._pctchance
+        return this._pctchance + this.metier.pctpointdechancebonus
     }
     public set pctchance(value: number) {
         this._pctchance = value
     }
     public get force(): number {
-        return this._force
+        return this._force + this.metier.forcebonus
     }
     public set force(value: number) {
         this._force = value
+    }
+    public get degats(): number {
+        return this._degats
+    }
+    public set degats(value: number) {
+        this._degats = value
     }
 }
