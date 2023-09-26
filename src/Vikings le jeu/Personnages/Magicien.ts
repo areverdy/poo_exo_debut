@@ -1,6 +1,7 @@
 import { Metier } from "../Metier";
 
 export class Magicien extends Metier{
+
     private static _nommetier: string = "Magicien";
     private static _santebonus: number = 5;
     private static _forcebonus: number = 1;
@@ -17,6 +18,9 @@ export class Magicien extends Metier{
         super(Magicien._nommetier, Magicien._santebonus, Magicien._forcebonus, Magicien._vitessebonus, Magicien._intellignencebonus, Magicien._manabonus, Magicien._pctpointdechancebonus)
         this._incantation = this.incantation
     }
+
+    capaciteAvantCombat(perso: Personnage, cible: Personnage) {}
+
     public get incantation(): boolean {
         return this._incantation;
     }

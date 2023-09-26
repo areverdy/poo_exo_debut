@@ -1,4 +1,7 @@
-export class Metier {
+import { Personnage } from "./Personnages/Personnage";
+
+export abstract class Metier {
+
     private _nommetier: string;
     private _santebonus: number;    
     private _forcebonus: number;   
@@ -25,6 +28,11 @@ export class Metier {
         this._manabonus = _manabonus
         this._pctpointdechancebonus = _pctpointdechancebonus
     }
+
+    abstract capaciteAvantCombat(perso : Personnage, cible : Personnage) : any
+
+
+
     public get nommetier(): string {
         return this._nommetier;
     }

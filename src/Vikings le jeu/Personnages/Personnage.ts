@@ -35,6 +35,10 @@ export class Personnage {
         return this.sante > 0
     }
 
+    avantCombat(cible:Personnage) {
+        this.metier.capaciteAvantCombat(this, cible);
+    }
+
     public get sante(){
         return this.santeInitiale - this._degats
     }

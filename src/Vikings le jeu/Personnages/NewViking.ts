@@ -1,7 +1,9 @@
 import { Metier } from "../Metier"
 import { Viking } from "../Viking"
+import { Personnage } from "./Personnage";
 
 export class Newviking extends Metier{
+
     private static _nommetier: string = "Viking";
     private static _santebonus: number = 25;
     private static _forcebonus: number = 4;
@@ -16,6 +18,11 @@ export class Newviking extends Metier{
         super(Newviking._nommetier, Newviking._santebonus, Newviking._forcebonus, Newviking._vitessebonus, Newviking._intellignencebonus, Newviking._manabonus, Newviking._pctpointdechancebonus)
         this._voldevie = 0.15
     }
+
+    capaciteAvantCombat(perso: Personnage, cible: Personnage) {
+        throw new Error("Method not implemented.");
+    }
+
     public get voldevie(): number {
         return this._voldevie
     }

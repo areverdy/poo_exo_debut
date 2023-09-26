@@ -1,6 +1,7 @@
 import { Metier } from "../Metier";
 
 export class Chevalier extends Metier {
+
     private static _nommetier: string = "Chevalier";
     private static _santebonus: number = 40;
     private static _forcebonus: number = 5;
@@ -16,6 +17,9 @@ export class Chevalier extends Metier {
         super(Chevalier._nommetier, Chevalier._santebonus, Chevalier._forcebonus, Chevalier._vitessebonus, Chevalier._intellignencebonus, Chevalier._manabonus, Chevalier._pctpointdechancebonus)
         this._bouclier=this.bouclier
     }
+
+    capaciteAvantCombat(perso: Personnage, cible: Personnage) {}
+
     public get bouclier(): boolean {
         return this._bouclier;
     }

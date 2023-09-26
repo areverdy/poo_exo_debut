@@ -3,7 +3,7 @@
 // import { Combat } from "./Vikings le jeu/Combat"
 
 import { before } from "node:test";
-import { Archer } from "./Vikings le jeu/Personnages/Archer";
+import { Archer } from "./Vikings le jeu/Personnages/Archer.1";
 import { Chevalier } from "./Vikings le jeu/Personnages/Chevalier";
 import { Magicien } from "./Vikings le jeu/Personnages/Magicien";
 import { Newviking } from "./Vikings le jeu/Personnages/NewViking";
@@ -41,3 +41,6 @@ const Merlin = new Personnage("Merlin", magicien)
 
 const monCombat = new CombatHandler(Ragnar, Cupidon)
 monCombat.seDeroule()
+
+const monCombat2 = new CombatHandler(Bayard, Merlin)
+monCombat2.seDeroule()
