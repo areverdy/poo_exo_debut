@@ -59,11 +59,11 @@ La capacité spéciale des magiciens et des magiciennes est l'incantation et la 
 
 À tous les tours les personnages de type magicien récupère la moitié de leurs intelligence en points de mana. Les sorts se lancent automatiquement dans certaines conditions. Les magiciens et les magiciennes connaissent 1 sort à la création du personnage.
 
-À la création d'un personnage magicien, il recoit un nom, +5 points de vie supplémentaires, +1 de force, +1 de vitesse, +5 d'intelligence 45 points de mana et +0% de chance de coup critique.8
+À la création d'un personnage magicien, il recoit un nom, +5 points de vie supplémentaires, +1 de force, +1 de vitesse, +5 d'intelligence 45 points de mana et +0% de chance de coup critique.
 
 #### Livre de sorts
 
-Le livre de sort contient tous les sorts qu'un personnage de type magicien
+Le livre de sort contient tous les sorts qu'un personnage de type magicien possède
 
 ##### Boule de feu
 
@@ -81,9 +81,7 @@ Si le personnage a perdu plus de 15% de ses points de vie totaux au tour préced
 
 La capacité spéciale des voleurs et des voleuses est l'attaque surprise : lors d'un coup critique, les dégats infligés sont de 250% de la force du personnage. En plus, ces personnages peuvent réattaquer lors d'un coup critique.
 
-À tous les tours les personnages de type magicien récupère la moitié de leurs intelligence en points de mana. Les sorts se lancent automatiquement dans certaines conditions. Les magiciens et les magiciennes connaissent 1 sort à la création du personnage.
-
-À la création d'un personnage magicien, il recoit un nom, +5 points de vie supplémentaires, +1 de force, +1 de vitesse, +5 d'intelligence, 45 points de mana et +0% de chance de coup critique.
+À la création d'un personnage voleur, il recoit un nom, +15 points de vie supplémentaires, +2 de force, +5 de vitesse, +1 d'intelligence, 10 points de mana et +13% de chance de coup critique.
 
 ### Choix du type de personnage
 
@@ -118,7 +116,7 @@ public simulate() {
     }
 ```
 
-Pour aujourd'hui, nous allons faire une classe CombatHandler qui va nous permettre de mieux gérer les combat, les différents opposants les et capacités spéciales et toutes les interactions possibles lors des affrontements.
+Pour aujourd'hui, nous allons faire une classe CombatHandler qui va nous permettre de mieux gérer les combat, les différents opposants, les capacités spéciales et toutes les interactions possibles lors des affrontements.
 
 Alors, comment s'organisent les combats :
 
@@ -132,9 +130,33 @@ Ensuite le premier personnage laisse la place au second qui va venir lui aussi p
 
 La fin du tour de combat approche, les méthodes OnTurnEnd()
 
-## Lundi 25 septembre : implémentation d'un système de point d'expérience et de niveau
+## Lundi 25 septembre : implémentation d'un système de points d'expérience et de niveau
 
-## Mardi 26 septembre : ajout de nouveaux adversaire
+Maintenant que nos personnages peuvent se battre plus facilement, nous allons pouvoir enchainer les combats et gagner en puissance.
+
+Pour chaque adversaire vaincu, le vainqueur recoit 100 points d'expérience par niveau de l'adversaire. Le niveau max est 5
+
+Les niveaux permettent aux personnages de devenir plus puissants et d'améliorer leur caractéristique en fonction de leur métier.
+
+Le palier pour passer au niveau 2 est de 250 px, pour passer au niveau 3, 1000 px, pour passer au niveau 4, 2000 px et pourr passer au niveau 5, 4000 px
+
+À chaque montée de niveau, le personnage gagne 10 points de vie supplémentaires plus 20% du montant de pv bonus de base (lié au métier), autant de point de mana que leur intelligence/2 et 1% de chance de coup critique. Les chavalier et les Vikings gagne 2 points de force, les archers et les voleurs 1 point de force et 1 de vitesse et les Magiciens gagnent 2 points d'intelligence.
+
+Au niveau 3, les personnages acquièrent une nouvelle compétence :
+
+- Les Vikings gagnent l'attitude berserk, qui peut se déclencher avant une attaque et qui double son attaque pour 1 tour ((15 + niveau du personnage)% de chance de s'activer)
+
+- Les Chevaliers peuvent désormais renvoyer 50% des dégats d'une attaque quand ils sont touchés ((15 + niveau du personnage)% de chance de s'activer)
+
+- Les voleurs lancent des dagues avant leur attaque, ce qui leur offre une attaque (à 33% de force) supplémentaire gratuite
+
+- Les magiciens obtiennent un second sort
+
+- Les archers gagnent la possibilité de tirer une seconde fois lors de leur tour (20% de chance)
+
+Désormais, pour enchainer les combats, les vainqueurs retrouvent tous leurs points de vie et de mana après chaque victoire.
+
+## Mardi 26 septembre : ajout de nouveaux adversaires
 
 ## Mercredi 27 septembre : ajout d'objets et d'un système de récompense
 

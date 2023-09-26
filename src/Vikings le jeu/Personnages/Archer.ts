@@ -13,13 +13,6 @@ export class Archer extends Metier {
     private static _pctpointdechancebonus: number = 0.05;
 
     private _posedepiege: boolean = true;
-    
-    public get posedepiege(): true {
-        return this._posedepiege = true;
-    }
-    public set posedepiege(value: boolean) {
-        this._posedepiege = value;
-    }
 
     capaciteAvantCombat(perso : Personnage, cible : Personnage) {
         if (perso.vitesse > cible.vitesse){
@@ -33,5 +26,11 @@ export class Archer extends Metier {
     ) {
         super(Archer._nommetier, Archer._santebonus, Archer._forcebonus, Archer._vitessebonus, Archer._intellignencebonus, Archer._manabonus, Archer._pctpointdechancebonus)
         this._posedepiege = this.posedepiege
+    }
+    public get posedepiege(): true {
+        return this._posedepiege = true;
+    }
+    public set posedepiege(value: boolean) {
+        this._posedepiege = value;
     }
 }
