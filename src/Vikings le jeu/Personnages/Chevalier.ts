@@ -1,4 +1,5 @@
 import { Metier } from "../Metier";
+import { Personnage } from "./Personnage";
 
 export class Chevalier extends Metier {
 

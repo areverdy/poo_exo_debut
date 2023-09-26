@@ -1,5 +1,5 @@
 import { log } from "console";
-import { Archer } from "./Personnages/Archer.1";
+import { Archer } from "./Personnages/Archer";
 import { Newviking } from "./Personnages/NewViking";
 import { Personnage } from "./Personnages/Personnage";
 import { Chevalier } from "./Personnages/Chevalier";
@@ -13,7 +13,7 @@ export class CombatHandler {
         this.attaquant2 = attaquant2
     }
 
-    seDeroule(){
+    seDeroule() : Personnage{
         let defenseur = this.attaquant1.vitesse > this.attaquant2.vitesse ? this.attaquant2 : this.attaquant1
         let attaquant = this.attaquant1.vitesse > this.attaquant2.vitesse ? this.attaquant1 : this.attaquant2
 
@@ -43,6 +43,7 @@ export class CombatHandler {
 
         if(this.attaquant1.isAlive()){
             console.log(this.attaquant1.nom + ' a gagné');
+            return this.attaquant1;
             // this.attaquant2.nbreptexperience = 160
             // console.log('niveau adverse', this.attaquant2.niveau);
             // console.log('niveau perso:before', this.attaquant1.niveau, this.attaquant1.nbreptexperience);
@@ -51,43 +52,9 @@ export class CombatHandler {
         }
         else {
             console.log(this.attaquant2.nom + ' a gagné');
+            return this.attaquant2;
         }
     }
-
-//    seDeroule(){
-    // let defenseur = this.attaquant1.vitesse > this.attaquant2.vitesse ? this.attaquant2 : this.attaquant1
-        // let attaquant = this.attaquant1.vitesse > this.attaquant2.vitesse ? this.attaquant1 : this.attaquant2
-
-    //     if(defenseur.metier instanceof Archer){
-    //         console.log('un archer!')
-    //     }
-
-    //     attaquant.avantCombat(defenseur);
-    //     defenseur.avantCombat(attaquant);
-
-    //     if(attaquant.metier instanceof Archer){
-    //         defenseur.hasPiege=true
-    //     }
-
-    //     while(defenseur.isAlive() && attaquant.isAlive()){
-    //         if(attaquant.hasPiege){
-    //             attaquant.seFaitAttaquer(defenseur.getForceTotale() * 2.5)
-    //         }
-    //         defenseur.seFaitAttaquer(attaquant.getForceTotale())
-
-    //         let intermediaire = attaquant
-    //         attaquant = defenseur
-    //         defenseur = intermediaire
-
-    //     } 
-
-    //     if(this.attaquant1.isAlive()){
-    //         console.log(this.attaquant1.nom + ' a gagné');
-    //     }
-    //     else {
-    //         console.log(this.attaquant2.nom + ' a gagné');
-    //     }
-    // }
 
 }
 

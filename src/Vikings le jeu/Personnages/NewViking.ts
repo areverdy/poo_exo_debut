@@ -19,9 +19,7 @@ export class Newviking extends Metier{
         this._voldevie = 0.15
     }
 
-    capaciteAvantCombat(perso: Personnage, cible: Personnage) {
-        throw new Error("Method not implemented.");
-    }
+    capaciteAvantCombat(perso: Personnage, cible: Personnage) {}
 
     public get voldevie(): number {
         return this._voldevie
