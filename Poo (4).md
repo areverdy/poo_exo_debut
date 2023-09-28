@@ -322,6 +322,10 @@ voir aussi <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Gl
 
 ### Héritage
 
+L'héritage définit des relations hiérarchiques entre les classes, de sorte que les attributs et méthodes communs peuvent être réutilisés. En définissant des attributs et des comportements de base dans une classe, il est possible de créer des classes secondaires qui étendent la fonctionnalité de la classe principale et ajoutent des attributs et des comportements supplémentaires. C'est l'une des clés de la programmation orientée objet.
+
+Exemple basé sur l'animal : on peut utiliser une seule classe d'animaux et ajouter un attribut de type d'animal qui spécifie le type d'animal. Différents types d'animaux nécessiteront différentes méthodes, par exemple, les reptiles doivent pouvoir pondre des œufs et les poissons doivent pouvoir nager. Même si les animaux ont une méthode commune, comme le déplacement, la mise en œuvre nécessiterait de nombreuses instructions « si » pour garantir le comportement idéal en matière de déplacement. Par exemple, les grenouilles sautent, tandis que les serpents glissent. Le principe de l'héritage résout ce problème.
+
 ```TypeScript
 class User {
     public name: string;
@@ -378,68 +382,6 @@ let redactor1 = new Redactor('Marcel', 35, 'Jeunesse');
 redactor1.salut();
 ```
 
-#### Surcharge et Override de méthode
-
-En programmation orientée objet, la surcharge, aussi appelée « overloading », consiste à déclarer, dans une même classe, deux méthodes de même nom mais avec des sémantiques différentes :
-
-    Même nom de méthode,
-    Paramètres différents (soit sur le nombre ou le/les type(s)),
-    Le type de retour n’est pas pris en compte.
-
-```Java
-public class Car {
-    private String brand;
-    private String registration;
-private int x;
-    private int y;
-
-    // A way to create a car
-    public car () {
-        brand = BrandType._DEFAULT_BRAND;
-    }
-    // Another one to create a car by providing parameters
-    public Car (String brand, String registration) {
-        this.brand = brand;
-        this.registration = registration;
-    }
-}
-
-L’aspect de la « surcharge » est retrouvé lors de la déclaration de plusieurs constructeurs dans une même classe.
-
-Supposons maintenant que la classe « Car » dispose d’une méthode move avec un comportement standard de déplacement.
-
-On pourrait définir une autre méthode de déplacement un peu plus sophistiquée en précisant l’accélération et un angle de rotation (si l’angle est nul on avance tout droit…) : en surchargeant la méthode move déjà existante.
-```
-
-La redéfinition, aussi appelée « overriding », consiste à définir le comportement d’une méthode selon le type de l’objet qui l’invoque, i.e., elle consiste à donner une nouvelle implémentation à une méthode héritée sans changer sa signature :
-
-- Le même nom de méthode
-- Même type de retour
-- Même paramètre (nombre et type)
-
-```Java
-public class Vehicule {
-
-    public Vehicule () {
-
-    }
-
-    public void describe () {
-        System.out.println("Un véhicule");
-    }
-}
-public class Scoot extends Vehicule {
-    public Scoot(){
-
-    }
-
-    @Override
-    public void describe() {
-        System.out.println("Excatement un Scoot.");
-    }
-}
-```
-
 #### Les Interfaces
 
 Les interfaces, dans les termes les plus simples, décrivent la structure de l'objet, ce qui signifie qu'elles décrivent à quoi l'objet devrait ressembler. Dans TypeScript, une interface contient uniquement la définition des méthodes et des propriétés, pas leur implémentation. C'est la fonctionnalité de la classe qui réalise la connexion entre l'interface en fournissant la connexion avec tous les paramètres de l'interface.
@@ -487,11 +429,11 @@ interface Person {
   weight? : number;
   age: number;
   hairColor? : string;
-   height: number;
+  height: number;
 }
 ```
 
-Dans l'exemple ci-dessus, l'interface Personne a deux propriétés facultatives avec le "?". C'est »couleur de cheveux' et »poids», tandis que les trois autres propriétés sont les propriétés requises.
+Dans l'exemple ci-dessus, l'interface Personne a deux propriétés facultatives avec le "?". C'est "couleur de cheveux" et "poids", tandis que les trois autres propriétés sont les propriétés requises.
 
 ##### Interface en tant que types de classe
 
@@ -549,9 +491,119 @@ Supposons que nous écrivions une sorte de code de bibliothèque, ce qui signifi
 
 Ce qu'il fait, c'est permettre à n'importe quelle personne aléatoire de créer une classe qui implémente cette interface, et d'utiliser un objet de la classe créée et de l'implémenter, notre code doit fonctionner avec.
 
+#### Les Classes abstraites
+
+Un autre principe de la programmation orientée objet est l'abstraction, qui se produit lorsque l'utilisateur interagit uniquement avec des attributs et des méthodes sélectionnés d'un objet, en utilisant des outils de haut niveau simplifiés pour accéder à un objet complexe.
+
+Dans la POO, les programmes sont généralement très volumineux et les objets communiquent beaucoup entre eux. Ainsi, l'abstraction facilite la maintenance d'un code volumineux, dans lequel diverses modifications peuvent intervenir au fil du temps.
+
+L'abstraction est donc basée sur l'utilisation de choses simples pour représenter la complexité. Les objets et les classes représentent le code sous-jacent, en cachant les détails complexes à l'utilisateur. Il s'agit donc d'une extension de l'encapsulation.
+
 ### Encapsulation
 
+L'encapsulation présente toutes les informations importantes d'un objet à l'intérieur de l'objet et n'expose que les informations choisies au monde extérieur.
+
+Cette propriété garantit que les informations d'un objet sont cachées au monde extérieur en regroupant dans une classe les caractéristiques ou attributs qui ont un accès privé, et les comportements ou méthodes qui ont un accès public.
+
+L'encapsulation de chaque objet est responsable à la fois de ses informations et de son état. Celui-ci ne peut être modifié que par les méthodes propres à l'objet. De cette façon, les attributs internes d'un objet sont inaccessibles de l'extérieur et ne peuvent être modifiés qu'en appelant les fonctions correspondantes. Cette encapsulation prévient ainsi toute utilisation inappropriée ou inattendue de l'objet.
+
+#### Motivations
+
+- L'encapsulation permet de modifier les structures de données internes sans modifier l’interface de celle-ci et donc sans pénaliser les utilisateurs. Cette situation arrive fréquemment lorsque l’on veut améliorer l’efficacité (rapidité de traitement) d’une classe ou d’un module, il faut souvent modifier les structures de données en conséquence.
+
+- L'encapsulation permet d’ajouter aisément des règles de validation et des contraintes d’intégrité, par exemple limiter le domaine des valeurs qu’une variable peut prendre (validité) ou vérifier que cette valeur n’entre pas en conflit avec les valeurs d’autres variables (intégrité).
+
+- L'encapsulation évite l’antipattern plat de spaghetti qui ne permet pas de déterminer le qui, le quoi et le comment d’une modification de données. En effet, l'application systématique de l'encapsulation impose un couplage faible et empêche donc le couplage fort, par espace commun ou par contenu, responsable du plat de spaghetti.
+
+- Finalement, l'encapsulation permet d’offrir une interface orientée services et responsabilités, c’est-à-dire, d’offrir aux utilisateurs (programmeurs, abstractionnistes et architectes) de la classe ou du module une interface indiquant clairement quels services sont offerts et quelles sont les responsabilités de cette classe ou module.
+
+#### Implémentation
+
+Les principes de l'encapsulation sont appliqués de manières très diverses suivant les langages. Mais on peut quand même trouver deux courants principaux.
+
+Premièrement, une application relativement stricte des principes dans les langages objet purs (pour autant que ce terme ait un sens) comme dans SmallTalk ou Eiffel. Dans ce cadre les attributs ne sont souvent disponibles qu'en lecture en général dans le programme et en écriture aussi depuis l'intérieur de la classe d'objet. On trouve ensuite différents moyens pour adapter ce cadre à des classes amies ou à des catégories et des hiérarchies d'objets.
+
+Deuxièmement, les langages tels que C++, Java ou Ruby et plus généralement tous les langages influencés par la syntaxe du C++ qui a proposé trois niveaux de visibilité :
+
+- public : les attributs publics sont accessibles à tous ;
+
+- protégé : les attributs protégés sont accessibles seulement à la classe elle-même et aux classes dérivées ;
+
+- privé : les attributs privés sont accessibles seulement par la classe elle-même.
+
+C'est ce qu'on appelle le masquage de l'information. Ce type d'encapsulation propose en fait une autre approche de l'encapsulation qui ne fait pas la distinction entre la lecture et l'écriture d'un attribut. Dans ce cadre, on peut aussi utiliser des méthodes d'accès et de modifications définies dans l'un de ces niveaux de visibilité suivant l'effet que l'on souhaite obtenir. Souvent des méthodes des deux types sont définies en plus de l'attribut qui contient réellement la donnée. Enfin, des moyens autorisent d'autres classes et fonctions libres à librement accéder à tous les attributs d'une classe, comme c'est le cas avec les classes et fonctions amies en C++.
+
 ### Polymorphisme
+
+Le polymorphisme consiste à concevoir des objets qui partagent des comportements, ce qui permet de traiter les objets de différentes manières. Il s'agit de la capacité de présenter la même interface pour différents moyens ou types de données sous-jacents. En utilisant l'héritage, les objets peuvent remplacer les comportements primaires partagés par des comportements secondaires spécifiques. Le polymorphisme permet à la même méthode d'exécuter des comportements différents de deux manières : le remplacement de méthode et la surcharge de méthode.
+
+#### Surcharge et Override de méthode
+
+En programmation orientée objet, la surcharge, aussi appelée « overloading », consiste à déclarer, dans une même classe, deux méthodes de même nom mais avec des sémantiques différentes :
+
+- Même nom de méthode,
+- Paramètres différents (soit sur le nombre ou le/les type(s)),
+- Le type de retour n’est pas pris en compte.
+
+```Java
+public class Car {
+    private String brand;
+    private String registration;
+    private int x;
+    private int y;
+
+    // A way to create a car
+    public Car () {
+        brand = BrandType._DEFAULT_BRAND;
+    }
+    // Another one to create a car by providing parameters
+    public Car (String brand, String registration) {
+        this.brand = brand;
+        this.registration = registration;
+    }
+}
+```
+
+L’aspect de la « surcharge » est retrouvé lors de la déclaration de plusieurs constructeurs dans une même classe.
+
+Supposons maintenant que la classe « Car » dispose d’une méthode move avec un comportement standard de déplacement.
+
+On pourrait définir une autre méthode de déplacement un peu plus sophistiquée en précisant l’accélération et un angle de rotation (si l’angle est nul on avance tout droit…) : en surchargeant la méthode move déjà existante.
+
+La redéfinition, aussi appelée « overriding », consiste à définir le comportement d’une méthode selon le type de l’objet qui l’invoque, i.e., elle consiste à donner une nouvelle implémentation à une méthode héritée sans changer sa signature :
+
+- Le même nom de méthode
+- Même type de retour
+- Même paramètre (nombre et type)
+
+```Java
+public class Vehicule {
+
+    public Vehicule () {
+
+    }
+
+    public void describe () {
+        System.out.println("Un véhicule");
+    }
+}
+public class Scoot extends Vehicule {
+    public Scoot(){
+
+    }
+
+    @Override
+    public void describe() {
+        System.out.println("Excatement un Scoot.");
+    }
+}
+
+public class Moto extends Vehicule {
+    public Moto(){
+
+    }
+}
+```
 
 ## Sources
 
@@ -571,6 +623,8 @@ Ce qu'il fait, c'est permettre à n'importe quelle personne aléatoire de créer
 <https://www.tektutorialshub.com/typescript/typescript-data-types/>
 <https://www.invivoo.com/zoom-heritage-encapsulation-surcharge-polymorphisme/>
 <https://www.tutorialsteacher.com/typescript/typescript-interface>
+<https://blog.hubspot.fr/website/programmation-orientee-objet>
+<https://fr.wikipedia.org/wiki/Encapsulation_(programmation)>
 
 ## À lire
 
@@ -580,7 +634,10 @@ Ce qu'il fait, c'est permettre à n'importe quelle personne aléatoire de créer
 <https://js.checkio.org/>
 <https://tarh.developpez.com/articles/typescript/pourquoi-utiliser-typescript/#Lintro>
 <https://typescript.developpez.com/>
-
-```
-
-```
+<https://fr.wikipedia.org/wiki/Couplage_(informatique)>
+<https://fr.wikipedia.org/wiki/Coh%C3%A9sion_(informatique)>
+<https://fr.wikipedia.org/wiki/Ind%C3%A9pendance_fonctionnelle>
+<https://www.jesuisundev.com/comprendre-typescript-en-5-minutes/>
+<https://kinsta.com/fr/base-de-connaissances/guide-complet-typescript/>
+<https://formation.webboy.fr/course/view.php?id=8> (vraiment cool)
+<https://qkzk.xyz/docs/nsi/cours_terminale/structures_donnees/poo/tp/> En python

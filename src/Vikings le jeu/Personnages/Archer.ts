@@ -14,6 +14,7 @@ export class Archer extends Metier {
 
     private _posedepiege: boolean = true;
 
+
     capaciteAvantCombat(perso : Personnage, cible : Personnage) {
         if (perso.vitesse > cible.vitesse){
             console.log(perso.nom + " pose un piège avant le début du combat")
@@ -25,12 +26,12 @@ export class Archer extends Metier {
         
     ) {
         super(Archer._nommetier, Archer._santebonus, Archer._forcebonus, Archer._vitessebonus, Archer._intellignencebonus, Archer._manabonus, Archer._pctpointdechancebonus)
-        this._posedepiege = this.posedepiege
+        this._posedepiege = this._posedepiege
     }
-    public get posedepiege(): true {
-        return this._posedepiege = true;
+    public get posedepiege_1(): boolean {
+        return this._posedepiege;
     }
-    public set posedepiege(value: boolean) {
+    public set posedepiege_1(value: boolean) {
         this._posedepiege = value;
     }
 }
