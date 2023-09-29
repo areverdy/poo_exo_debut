@@ -1,5 +1,7 @@
 import {Arme} from "../Arme"
 import { Metier } from "../Metier"
+import { Consommable } from "../Objets/Consommable"
+import { Equipable } from "../Objets/Equipable"
 
 
 export class Personnage {
@@ -16,13 +18,20 @@ export class Personnage {
     private _degats: number = 0
     public hasPiege: boolean = false
     public hasBouclier: boolean = false
+    private _consommable: Consommable[]
+    
      
     constructor(
         nom: string,
         metier : Metier,
+        consommable : Consommable[],
+
+        
     ) {
         this.nom = nom
         this._metier = metier
+        this._consommable = consommable
+
         }
 
     seFaitAttaquer(pointsDeDegats: number){
@@ -108,5 +117,11 @@ export class Personnage {
     }
     public set degats(value: number) {
         this._degats = value
+    }
+    public get consommable(): Consommable[] {
+        return this._consommable
+    }
+    public set consommable(value: Consommable[]) {
+        this._consommable = value
     }
 }

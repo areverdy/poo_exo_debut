@@ -1,5 +1,7 @@
-interface IObjet {
+import { Personnage } from "../Personnages/Personnage";
+
+export interface IObjet {
     prix : number;
     poids : number;
-    utiliser() : any;
+    utiliser(personnage : Personnage) : any;
 }
